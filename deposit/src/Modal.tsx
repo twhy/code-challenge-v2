@@ -1,19 +1,20 @@
 import styled from 'styled-components'
-import { ATOM_ICON_URL, OSMO_ICON_URL, ArrowColor, CloseButtonBackgroundColor, FieldColor, InfoBackgroundColor,
-  InputBorderColor, LabelColor, ModalBackgroundColor, OptionBackgroundColor, PrimaryButtonBackgroundColor, PrimaryButtonColor,
-  SecondaryButtonColor, SubtitleColor, ThemeProps, TitleColor } from './constants'
+import { ATOM_ICON_URL, OSMO_ICON_URL, ThemeProps, getModalBackgroundColor,
+  getTitleColor, getArrowColor, getLabelColor, getCloseButtonBackgroundColor,
+  getInfoBackgroundColor, getInputBorderColor, getFieldColor, getOptionBackgroundColor,
+  getSubtitleColor, getPrimaryButtonColor, getPrimaryButtonBackgroundColor, getSecondaryButtonColor } from './constants'
 
 export const ModalWrapper = styled.div`
   margin: 0 auto;
   padding: 1rem;
   max-width: 400px;
   border-radius: 10px;
-  background-color: ${(props: ThemeProps) => ModalBackgroundColor[props.theme.mode]};
+  background-color: ${getModalBackgroundColor};
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
 `
 
 export const ModalTitle = styled.h2`
-  color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+  color: ${getTitleColor};
   margin: 0;
   font-weight: 600;
   font-size: 16px;
@@ -29,7 +30,7 @@ export const CloseButton = styled.span`
   cursor: pointer;
   position: absolute;
   border-radius: 4px;
-  background-color: ${(props: ThemeProps) => CloseButtonBackgroundColor[props.theme.mode]};
+  background-color: ${getCloseButtonBackgroundColor};
   &:before, &:after {
     content: '';
     width: 12px;
@@ -38,7 +39,7 @@ export const CloseButton = styled.span`
     left: 7px;
     display: block;
     position: absolute;
-    background-color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+    background-color: ${getTitleColor};
   }
   &:after { transform: rotate(-45deg); }
   &:before { transform: rotate(45deg); }
@@ -60,7 +61,7 @@ export const FromToArrow = styled.span`
   align-items: center;
   margin: 0 0.5rem;
   font-size: 12px;
-  color: ${(props: ThemeProps) => ArrowColor[props.theme.mode]};
+  color: ${getArrowColor};
 `
 
 export const FromToLabel = styled.label`
@@ -68,7 +69,7 @@ export const FromToLabel = styled.label`
   display: block;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: ${(props: ThemeProps) => LabelColor[props.theme.mode]};
+  color: ${getLabelColor};
 `
 
 export const FromToField = styled.div`
@@ -77,7 +78,7 @@ export const FromToField = styled.div`
   padding: 0 10px;
   align-items: center;
   border-radius: 0.5rem;
-  background-color: ${(props: ThemeProps) => InfoBackgroundColor[props.theme.mode]};
+  background-color: ${getInfoBackgroundColor};
 `
 
 export const FromToIcon = styled.img`
@@ -91,7 +92,7 @@ export const FromToIcon = styled.img`
 export const FromToAddr = styled.span`
   font-size: 11px;
   font-weight: 400;
-  color: ${(props: ThemeProps) => FieldColor[props.theme.mode]};
+  color: ${getFieldColor};
 `
 
 export const SelectAmountContainer = styled.div`
@@ -109,27 +110,27 @@ export const SelectAmountLabel = styled.label`
   font-size: 15px;
   display: block;
   font-weight: 600;
-  color: ${(props: ThemeProps) => LabelColor[props.theme.mode]};
+  color: ${getLabelColor};
 `
 
 export const SelectAmountAvailable = styled.p`
   margin: 0;
   font-size: 11px;
-  color: ${(props: ThemeProps) => LabelColor[props.theme.mode]};
+  color: ${getLabelColor};
 `
 
 export const SelectAmountAvailableValue = styled.span`
   font-size: 11px;
   font-weight: 500;
   margin-left: 4px;
-  color: ${(props: ThemeProps) => LabelColor[props.theme.mode]}
+  color: ${getLabelColor}
 `
 
 export const AmountInputContainer = styled.div`
   height: 56px;
   display: flex;
   align-items: center;
-  border: 1px solid ${(props: ThemeProps) => InputBorderColor[props.theme.mode]};
+  border: 1px solid ${getInputBorderColor};
   border-radius: 6px;
 `
 
@@ -148,10 +149,10 @@ export const AmountInput = styled.input`
   font-weight: 600;
   padding: 0 12px;
   border: none;
-  border-left: 1px solid ${(props: ThemeProps) => InputBorderColor[props.theme.mode]};
+  border-left: 1px solid ${getInputBorderColor};
   appearance: none;
   border-radius: 0;
-  color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+  color: ${getTitleColor};
   background-color: transparent;
   &:focus { outline: none }
 `
@@ -162,13 +163,13 @@ export const AmountTotal = styled.div`
   display: flex;
   align-items: center;
   white-space: nowrap;
-  color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+  color: ${getTitleColor};
 `
 
 export const AmountTotalValue = styled.span`
   font-size: 10px;
   margin: 0 14px 0 6px;
-  color: ${(props: ThemeProps) => FieldColor[props.theme.mode]};
+  color: ${getFieldColor};
 `
 
 export const AmountOptionsContainer = styled.div`
@@ -179,7 +180,7 @@ export const AmountOptionsContainer = styled.div`
 `
 
 export const AmountOption = styled.span`
-  color: ${(props: ThemeProps) => LabelColor[props.theme.mode]};
+  color: ${getLabelColor};
   font-size: 11px;
   font-weight: 600;
   margin-left: 8px;
@@ -187,7 +188,7 @@ export const AmountOption = styled.span`
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  background-color: ${(props: ThemeProps) => OptionBackgroundColor[props.theme.mode]};
+  background-color: ${getOptionBackgroundColor};
 `
 
 export const EstimatedTimeContainer = styled.div`
@@ -199,8 +200,8 @@ export const EstimatedTimeContainer = styled.div`
   margin-bottom: 16px;
   border-radius: 6px;
   font-size: 12px;
-  color: ${(props: ThemeProps) => SubtitleColor[props.theme.mode]};
-  background-color: ${(props: ThemeProps) => InfoBackgroundColor[props.theme.mode]};
+  color: ${getSubtitleColor};
+  background-color: ${getInfoBackgroundColor};
 `
 
 export const ClockIcon = styled.span`
@@ -210,14 +211,14 @@ export const ClockIcon = styled.span`
   border-radius: 50%;
   position: relative;
   margin-right: 10px;
-  border: 1px solid ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+  border: 1px solid ${getTitleColor};
   &:before, &:after {
     height: 1px;
     content: '';
     top: 0;
     position: absolute;
     display: block;
-    background-color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+    background-color: ${getTitleColor};
   }
   &:after {
     top: 4px;
@@ -236,7 +237,7 @@ export const ClockIcon = styled.span`
 export const EstimatedTime = styled.span`
   font-weight: 600;
   margin-left: 4px;
-  color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+  color: ${getTitleColor};
 `
 
 export const TransferButton = styled.button`
@@ -252,8 +253,8 @@ export const TransferButton = styled.button`
   margin-bottom: 13px;
   transition: all 0.2s ease-in-out;
   &:hover { filter: brightness(1.05) }
-  color: ${(props: ThemeProps) => PrimaryButtonColor[props.theme.mode]};
-  background-color: ${(props: ThemeProps) => PrimaryButtonBackgroundColor[props.theme.mode]};
+  color: ${getPrimaryButtonColor};
+  background-color: ${getPrimaryButtonBackgroundColor};
 `
 
 export const CancelButton = styled.button`
@@ -267,7 +268,7 @@ export const CancelButton = styled.button`
   text-center: center;
   cursor: pointer;
   margin-bottom: 2px;
-  color: ${(props: ThemeProps) => SecondaryButtonColor[props.theme.mode]};
+  color: ${getSecondaryButtonColor};
   background-color: transparent;
 `
 
@@ -297,7 +298,7 @@ export default function Modal({ theme }: ThemeProps) {
         <FromToField>
           <FromToIcon src={OSMO_ICON_URL} />
           <FromToAddr>osmo1xy5y...w9a</FromToAddr>
-          <PenIcon color={FieldColor[theme.mode]} margin="0 0 0 14px" />
+          <PenIcon color={getFieldColor({ theme })} margin="0 0 0 14px" />
         </FromToField>
       </FromTo>
     </FromToContainer>

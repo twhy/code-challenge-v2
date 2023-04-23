@@ -79,3 +79,29 @@ export const CloseButtonBackgroundColor = {
   [ThemeMode.Dark]: 'rgba(40, 45, 50, 1)',
   [ThemeMode.Light]: 'rgba(246, 249, 253, 1)'
 }
+
+export const getLabelColor = (props: ThemeProps) => LabelColor[props.theme.mode]
+
+export const getFieldColor = (props: ThemeProps) => FieldColor[props.theme.mode]
+
+export const getArrowColor = (props: ThemeProps) => ArrowColor[props.theme.mode]
+
+export const getTitleColor = (props: ThemeProps) => TitleColor[props.theme.mode]
+
+export const getSubtitleColor = (props: ThemeProps) => SubtitleColor[props.theme.mode]
+
+export const getInputBorderColor = (props: ThemeProps) => InputBorderColor[props.theme.mode]
+
+export const getInfoBackgroundColor = (props: ThemeProps) => InfoBackgroundColor[props.theme.mode]
+
+export const getModalBackgroundColor = (props: ThemeProps) => ModalBackgroundColor[props.theme.mode]
+
+export const getOptionBackgroundColor = (props: ThemeProps) => OptionBackgroundColor[props.theme.mode]
+
+export const getCloseButtonBackgroundColor = (props: ThemeProps) => CloseButtonBackgroundColor[props.theme.mode]
+
+export const getPrimaryButtonColor = (props: ThemeProps) => PrimaryButtonColor[props.theme.mode]
+
+export const getPrimaryButtonBackgroundColor = (props: ThemeProps) => PrimaryButtonBackgroundColor[props.theme.mode]
+
+export const getSecondaryButtonColor = (props: ThemeProps) => SecondaryButtonColor[props.theme.mode]

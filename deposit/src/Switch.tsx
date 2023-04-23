@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ModalBackgroundColor, ThemeProps, TitleColor } from './constants'
+import { getTitleColor, getModalBackgroundColor } from './constants'
 
 export const SwitchWrapper = styled.div`
   position: relative;
@@ -13,7 +13,7 @@ export const SwitchLabel = styled.label`
   position: absolute;
   width: 100%;
   height: 100px;
-  background-color: ${(props: ThemeProps) => ModalBackgroundColor[props.theme.mode]};
+  background-color: ${getModalBackgroundColor};
   border-radius: 50px;
   cursor: pointer;
 `
@@ -37,16 +37,16 @@ export const SwitchSlider = styled.span`
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    box-shadow: inset 28px -4px 0px 0px ${(props: ThemeProps) => TitleColor[props.theme.mode]};
-    background-color: ${(props: ThemeProps) => ModalBackgroundColor[props.theme.mode]};
+    box-shadow: inset 28px -4px 0px 0px ${getTitleColor};
+    background-color: ${getModalBackgroundColor};
     transition: 0.3s;
   }
   input:checked ~ & {
-    background-color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
+    background-color: ${getTitleColor};
   }
   input:checked ~ &:before {
     transform: translateX(95px);
-    background-color: ${(props: ThemeProps) => ModalBackgroundColor[props.theme.mode]};
+    background-color: ${getModalBackgroundColor};
     box-shadow: none;
   }
 `
