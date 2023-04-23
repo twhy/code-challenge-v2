@@ -1,89 +1,9 @@
-import styled, { ThemeProps as StyledThemeProps } from 'styled-components'
+import styled from 'styled-components'
+import { ATOM_ICON_URL, OSMO_ICON_URL, ArrowColor, CloseButtonBackgroundColor, FieldColor, InfoBackgroundColor,
+  InputBorderColor, LabelColor, ModalBackgroundColor, OptionBackgroundColor, PrimaryButtonBackgroundColor, PrimaryButtonColor,
+  SecondaryButtonColor, SubtitleColor, ThemeProps, TitleColor } from './constants'
 
-export enum ThemeMode {
-  Dark = 'Dark',
-  Light = 'Light'
-}
-
-export type ThemeProps = StyledThemeProps<{ mode: ThemeMode }>
-
-export const TitleColor = {
-  [ThemeMode.Dark]: 'rgba(255, 255, 255, 1)',
-  [ThemeMode.Light]: 'rgba(39, 44, 48, 1)'
-}
-
-export const SubtitleColor = {
-  [ThemeMode.Dark]: 'rgba(211, 215, 221, 1)',
-  [ThemeMode.Light]: 'rgba(36, 41, 48, 1)'
-}
-
-export const LabelColor = {
-  [ThemeMode.Dark]: 'rgba(95, 110, 120, 1)',
-  [ThemeMode.Light]: 'rgba(95, 107, 121, 1)'
-}
-
-export const FieldColor = {
-  [ThemeMode.Dark]: 'rgba(90, 100, 110, 1)',
-  [ThemeMode.Light]: 'rgba(108, 120, 133, 1)'
-}
-
-export const ArrowColor = {
-  [ThemeMode.Dark]: 'rgba(100, 100, 100, 1)',
-  [ThemeMode.Light]: 'rgba(65, 74, 92, 1)'
-}
-
-export const ModalBackgroundColor = {
-  [ThemeMode.Dark]: 'rgba(32, 36, 38, 1)',
-  [ThemeMode.Light]: 'rgba(255, 255, 255, 1)'
-}
-
-export const InputBorderColor = {
-  [ThemeMode.Dark]: 'rgba(46, 51, 58, 1)',
-  [ThemeMode.Light]: 'rgba(203, 208, 216, 1)'
-}
-
-export const InfoBackgroundColor = {
-  [ThemeMode.Dark]: 'rgba(20, 20, 23, 1)',
-  [ThemeMode.Light]: 'rgba(235, 240, 247, 1)'
-}
-
-export const OptionBackgroundColor = {
-  [ThemeMode.Dark]: 'rgba(39, 44, 48, 1)',
-  [ThemeMode.Light]: 'rgba(235, 241, 247, 1)'
-}
-
-export const PrimaryButtonColor = {
-  [ThemeMode.Dark]: 'rgba(27, 29, 33, 1)',
-  [ThemeMode.Light]: 'rgba(255, 255, 255, 1)'
-}
-
-export const PrimaryButtonBackgroundColor = {
-  [ThemeMode.Dark]: 'rgba(235, 240, 247, 1)',
-  [ThemeMode.Light]: 'rgba(39, 43, 48, 1)'
-}
-
-export const SecondaryButtonColor = {
-  [ThemeMode.Dark]: 'rgba(94, 106, 122, 1)',
-  [ThemeMode.Light]: 'rgba(110, 120, 130, 1)'
-}
-
-export const CloseButtonColor = {
-  [ThemeMode.Dark]: 'rgba(87, 98, 114, 1)',
-  [ThemeMode.Light]: 'rgba(94, 106, 121, 1)'
-}
-
-export const CloseButtonBackgroundColor = {
-  [ThemeMode.Dark]: 'rgba(40, 45, 50, 1)',
-  [ThemeMode.Light]: 'rgba(246, 249, 253, 1)'
-}
-
-export const Container = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
-  padding-top: 5rem;
-`
-
-export const Modal = styled.div`
+export const ModalContainer = styled.div`
   margin: 0 auto;
   padding: 1rem;
   max-width: 400px;
@@ -351,78 +271,63 @@ export const CancelButton = styled.button`
   background-color: transparent;
 `
 
-export const SwitchContainer = styled.div`
-  display: flex;
-  justify-content: end;
-  margin-bottom: 10px;
-`  
-
-export const SwitchWrapper = styled.div`
-  position: relative;
-  width: 200px;
-  height: 50px;
-  transform: scale(0.28);
-  transform-origin: 100% 50%;
-`
-
-export const SwitchLabel = styled.label`
-  position: absolute;
-  width: 100%;
-  height: 100px;
-  background-color: ${(props: ThemeProps) => ModalBackgroundColor[props.theme.mode]};
-  border-radius: 50px;
-  cursor: pointer;
-`
-
-export const SwitchInput = styled.input`
-  position: absolute;
-  display: none;
-`
-
-export const SwitchSlider = styled.span`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50px;
-  transition: 0.3s;
-  &:before {
-    content: "";
-    position: absolute;
-    top: 13px;
-    left: 16px;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    box-shadow: inset 28px -4px 0px 0px ${(props: ThemeProps) => TitleColor[props.theme.mode]};
-    background-color: ${(props: ThemeProps) => ModalBackgroundColor[props.theme.mode]};
-    transition: 0.3s;
-  }
-  input:checked ~ & {
-    background-color: ${(props: ThemeProps) => TitleColor[props.theme.mode]};
-  }
-  input:checked ~ &:before {
-    transform: translateX(95px);
-    background-color: ${(props: ThemeProps) => ModalBackgroundColor[props.theme.mode]};
-    box-shadow: none;
-  }
-`
-
 export function PenIcon({ size = '14px', color = '', margin = '', cursor = 'pointer' }) {
   return <svg xmlns="http://www.w3.org/2000/svg" style={{ width: size, height: size, color, margin, cursor }} viewBox="0 0 20 20" fill="currentColor">
     <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
   </svg>
 }
 
-export type SwitchProps = {
-  checked?: boolean
-  onChange: (checked: boolean) => void
-}
-
-export function Switch({ checked = false, onChange }: SwitchProps) {
-  return <SwitchWrapper>
-    <SwitchLabel>
-      <SwitchInput type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} />
-      <SwitchSlider />
-    </SwitchLabel>
-  </SwitchWrapper>
+export default function Modal({ theme }: ThemeProps) {
+  return <ModalContainer>
+    <ModalTitle>
+      Deposit ATOM
+      <CloseButton />
+    </ModalTitle>
+    <FromToContainer>
+      <FromTo>
+        <FromToLabel>From Cosmos Hub</FromToLabel>
+        <FromToField>
+          <FromToIcon src={ATOM_ICON_URL} />
+          <FromToAddr>atom1xy5y...m6wwz9a</FromToAddr>
+        </FromToField>
+      </FromTo>
+      <FromToArrow>→</FromToArrow>
+      <FromTo>
+        <FromToLabel>To Osmosis</FromToLabel>
+        <FromToField>
+          <FromToIcon src={OSMO_ICON_URL} />
+          <FromToAddr>osmo1xy5y...w9a</FromToAddr>
+          <PenIcon color={FieldColor[theme.mode]} margin="0 0 0 14px" />
+        </FromToField>
+      </FromTo>
+    </FromToContainer>
+    <SelectAmountContainer>
+      <SelectAmountHeader>
+        <SelectAmountLabel>Select amount</SelectAmountLabel>
+        <SelectAmountAvailable>
+          Available
+          <SelectAmountAvailableValue>2 ATOM</SelectAmountAvailableValue>
+        </SelectAmountAvailable>
+      </SelectAmountHeader>
+      <AmountInputContainer>
+        <AmountInputIcon src={ATOM_ICON_URL} />
+        <AmountInput type="number" value={2} onChange={() => {}} />
+        <AmountTotal>
+          ATOM
+          <AmountTotalValue>≈ $1,013</AmountTotalValue>
+        </AmountTotal>
+      </AmountInputContainer>
+      <AmountOptionsContainer>
+        <AmountOption>Max</AmountOption>
+        <AmountOption>1/2</AmountOption>
+        <AmountOption>1/3</AmountOption>
+      </AmountOptionsContainer>
+    </SelectAmountContainer>
+    <EstimatedTimeContainer>
+      <ClockIcon />
+      Estimated time: <EstimatedTime>20 seconds</EstimatedTime>
+    </EstimatedTimeContainer>
+    <TransferButton>Transfer</TransferButton>
+    <CancelButton>Cancel</CancelButton>
+  </ModalContainer>
 }
