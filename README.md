@@ -17,3 +17,6 @@ Make an UI Component as follows
 2. `$ npm install`
 3. `$ npx vite --host`
 4. Visit http://localhost:5173
+
+## Preview
+https://twhy.github.io/code-challenge-v2
