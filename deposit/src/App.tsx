@@ -10,7 +10,7 @@ const Container = styled.div`
   padding-top: 5rem;
 `
 
-const SwitchContainer = styled.div`
+const ActionBar = styled.div`
   display: flex;
   justify-content: end;
   margin-bottom: 10px;
@@ -28,9 +28,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <SwitchContainer>
+        <ActionBar>
           <Switch checked={check} onChange={onChange} />
-        </SwitchContainer>
+        </ActionBar>
         <Modal theme={theme} />
       </Container>
     </ThemeProvider>

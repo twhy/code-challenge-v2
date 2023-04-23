@@ -3,7 +3,7 @@ import { ATOM_ICON_URL, OSMO_ICON_URL, ArrowColor, CloseButtonBackgroundColor, F
   InputBorderColor, LabelColor, ModalBackgroundColor, OptionBackgroundColor, PrimaryButtonBackgroundColor, PrimaryButtonColor,
   SecondaryButtonColor, SubtitleColor, ThemeProps, TitleColor } from './constants'
 
-export const ModalContainer = styled.div`
+export const ModalWrapper = styled.div`
   margin: 0 auto;
   padding: 1rem;
   max-width: 400px;
@@ -278,7 +278,7 @@ export function PenIcon({ size = '14px', color = '', margin = '', cursor = 'poin
 }
 
 export default function Modal({ theme }: ThemeProps) {
-  return <ModalContainer>
+  return <ModalWrapper>
     <ModalTitle>
       Deposit ATOM
       <CloseButton />
@@ -329,5 +329,5 @@ export default function Modal({ theme }: ThemeProps) {
     </EstimatedTimeContainer>
     <TransferButton>Transfer</TransferButton>
     <CancelButton>Cancel</CancelButton>
-  </ModalContainer>
+  </ModalWrapper>
 }
